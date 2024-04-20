@@ -5,7 +5,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   
   return (
-    <div className="Navbar container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+    <div className="Navbar container mx-auto flex flex-wrap  flex-col md:flex-row items-center">
       <span className="nav-logo">
       <Link
           to={"/"}
@@ -34,7 +34,9 @@ const Navbar = () => {
       <Link
           to={"/cart"}
           className="inline-flex items-center justify-center tapa text-white border-0 py-2 px-3 focus:outline-none rounded text-base mt-4 md:mt-0 hover:scale-110 duration-300"
+          onClick={() => setIsOpen(!isOpen)}
         >
+       
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"

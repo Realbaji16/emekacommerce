@@ -1,6 +1,7 @@
 
 
 import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,17 +11,33 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="eme hidder text-black body-font p-4">
+    <nav className=" text-black body-font p-4">
       <div className="container mx-auto">
         <div className="flex justify-between items-center">
-          <div className="text-black text-xl font-bold">
-            Your Logo
-          </div>
+        <span className="nav-logo">
+      <Link
+          to={"/"}
+          className="flex navbar-logo cursor-pointer title-font font-medium items-center text-gray-900 mb-4 md:mb-0"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            className="w-10 h-10 text-white p-2 animate-bounce capa4 rounded-full"
+            viewBox="0 0 24 24"
+          >
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+          </svg>
+          <span className="ml-3 text-2xl">BAJIHUB</span>
+        </Link></span>
 
           <div className="md:hidden">
             <button
               onClick={toggleMenu}
-              className="text-white focus:outline-none"
+              className="text-black focus:outline-none"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -49,10 +66,10 @@ const Navbar = () => {
           </div>
 
           <div className="hidden md:flex space-x-4">
-            <a href="#" className="text-black">Home</a>
-            <a href="#" className="text-black">About</a>
-            <a href="#" className="text-black">Services</a>
-            <a href="#" className="text-black">Contact</a>
+          <Link onClick={() => setIsOpen(!isOpen)}  to="/"><a className="het" href="/">Home</a></Link>
+      <Link onClick={() => setIsOpen(!isOpen)} to="/product"><a className="het">Product</a></Link>
+      <Link onClick={() => setIsOpen(!isOpen)}  to="/gallery"><a className="het" >Gallery</a></Link>
+      <Link onClick={() => setIsOpen(!isOpen)} to="/contact"><a className="het2 inline-flex text-white capa3 border-0 py-2 px-6 focus:outline-none  rounded text-lg" href="/anime">Contact Us</a></Link>
           </div>
         </div>
       </div>

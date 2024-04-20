@@ -9,14 +9,14 @@ import CategoryProduct from './modules/CategoryProduct/CategoryProduct';
 import Cart from './modules/Cart/Cart';
 import Cart1 from './modules/Cart/Cart1';
 
-import Navbarr from './components/Header/Navbarr';
+import Navbar from './components/Header/Navbarr';
 import Contact from './components/Contact/Contact';
 import Gallery from './Gallery/Gallery';
 
 function App() {
   return (
     <div>
-      <Navbarr/>
+      <Navbar/>
       <Routes>
       <Route path='/' element={<Home/>}/>
       <Route path='/products/:id' element={<Product/>}/>
