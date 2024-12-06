@@ -1,77 +1,104 @@
 import React, { useState } from "react";
-import "./Navbar.css";
 import { Link } from "react-router-dom";
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  
+
   return (
-    <div className="Navbar container mx-auto flex flex-wrap  flex-col md:flex-row items-center">
-      <span className="nav-logo">
-      <Link
-          to={"/"}
-          className="flex navbar-logo cursor-pointer title-font font-medium items-center text-gray-900 mb-4 md:mb-0"
+    <div className="container mx-auto flex flex-wrap items-center justify-between px-4 py-3">
+      {/* Logo Section */}
+      <div className="flex items-center">
+        <Link
+          to="/"
+          className="flex items-center text-gray-900 font-medium text-2xl"
+        ><svg xmlns="http://www.w3.org/2000/svg" width="150" height="50" viewBox="0 0 300 100" fill="none">
+
+  <circle cx="50" cy="50" r="40" fill="#0078FF" />
+  <path d="M50 30 L65 50 L50 70 L35 50 Z" fill="white" />
+  
+
+  <text x="100" y="60" fill="#333333" font-family="Arial, sans-serif" font-size="36" font-weight="bold">
+    BAJI
+  </text>
+ 
+</svg>
+
+        
+        </Link>
+      </div>
+
+      {/* Hamburger Menu */}
+      <button
+        className="md:hidden block text-gray-900 focus:outline-none"
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        <div className="space-y-1">
+          <div
+            className={`w-6 h-1 bg-gray-900 transform transition ${
+              isOpen ? "rotate-45 translate-y-2" : ""
+            }`}
+          ></div>
+          <div
+            className={`w-6 h-1 bg-gray-900 transition ${
+              isOpen ? "opacity-0" : ""
+            }`}
+          ></div>
+          <div
+            className={`w-6 h-1 bg-gray-900 transform transition ${
+              isOpen ? "-rotate-45 -translate-y-2" : ""
+            }`}
+          ></div>
+        </div>
+      </button>
+
+      {/* Nav Items */}
+      <div
+        className={`${
+          isOpen ? "block" : "hidden"
+        } md:flex flex-col md:flex-row items-center w-full md:w-auto`}
+      >
+        <Link
+          to="/"
+          className="block py-2 px-4 text-gray-900 hover:text-blue-500"
+          onClick={() => setIsOpen(false)}
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            className="w-10 h-10 text-white p-2 animate-bounce capa4 rounded-full"
-            viewBox="0 0 24 24"
-          >
-            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-          </svg>
-          <span className="ml-3 text-2xl">BAJIHUB</span>
-        </Link></span>
-      <div className={`nav-items ${isOpen && "open"}`}>
-      <Link onClick={() => setIsOpen(!isOpen)}  to="/"><a className="het" href="/">Home</a></Link>
-      <Link onClick={() => setIsOpen(!isOpen)} to="/product"><a className="het">Product</a></Link>
-      <Link onClick={() => setIsOpen(!isOpen)}  to="/gallery"><a className="het" >Gallery</a></Link>
-      <Link onClick={() => setIsOpen(!isOpen)} to="/contact"><a className="het2 inline-flex text-white capa3 border-0 py-2 px-6 focus:outline-none  rounded text-lg" href="/anime">Contact Us</a></Link>
-      
-      <Link
-          to={"/cart"}
-          className="inline-flex items-center justify-center tapa text-white border-0 py-2 px-3 focus:outline-none rounded text-base mt-4 md:mt-0 hover:scale-110 duration-300"
-          onClick={() => setIsOpen(!isOpen)}
+          Home
+        </Link>
+        <Link
+          to="/product"
+          className="block py-2 px-4 text-gray-900 hover:text-blue-500"
+          onClick={() => setIsOpen(false)}
         >
-       
+          Product
+        </Link>
+        <Link
+          to="/gallery"
+          className="block py-2 px-4 text-gray-900 hover:text-blue-500"
+          onClick={() => setIsOpen(false)}
+        >
+          Gallery
+        </Link>
+    
+        <Link
+          to="/cart"
+          className="block py-2 px-4 text-gray-900 hover:text-blue-500 flex items-center"
+          onClick={() => setIsOpen(false)}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
             height="24"
             fill="currentColor"
-            class="bi bi-cart haha"
+            className="bi bi-cart mr-2"
             viewBox="0 0 16 16"
-
           >
-            {" "}
-            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />{" "}
+            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
           </svg>
-          <svg
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            className="w-4 h-4 ml-1 haha"
-            viewBox="0 0 24 24"
-          >
-            <path d="M5 12h14M12 5l7 7-7 7"></path>
-          </svg>
+          Cart
         </Link>
-      </div>
-    
-      <div
-        className={`nav-toggle ${isOpen && "open"}`}
-        onClick={() => setIsOpen(!isOpen)}
-      >
-        <div className="bar"></div>
       </div>
     </div>
   );
 };
 
 export default Navbar;
-
