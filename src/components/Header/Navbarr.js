@@ -71,13 +71,7 @@ const Navbar = () => {
         >
           Product
         </Link>
-        <Link
-          to="/gallery"
-          className="block py-2 px-4 text-gray-900 hover:text-blue-500"
-          onClick={() => setIsOpen(false)}
-        >
-          Gallery
-        </Link>
+      
     
         <Link
           to="/cart"
